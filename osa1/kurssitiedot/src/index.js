@@ -29,7 +29,7 @@ const Total = (props) => {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     return(
     <>
-        <p>yhteensä {props.parts.map(part => Number(part.exercises)).reduce(reducer)} tehtävää</p>
+        <p>yhteensä {props.parts.map(part => part.exercises).reduce(reducer)} tehtävää</p>
     </>
     )
 }
