@@ -1,14 +1,25 @@
-import React from 'react'
+import React from "react";
 
-const Persons = ({ persons, filter }) =>
-	persons
-		.filter(person =>
-			person.name.toLowerCase().includes(filter.toLowerCase())
-		)
-		.map(person => (
-			<p key={person.name}>
-				{person.name} {person.number}
-			</p>
-		))
+const Button = (props) => (
+  <button onClick={props.handleClick}>{props.text}</button>
+);
 
-export default Persons
+const Persons = ({ persons, filter, handleDelete }) =>
+  persons
+    .filter((person) =>
+      person.name.toLowerCase().includes(filter.toLowerCase())
+    )
+    .map((person) => (
+      <div key={person.id}>
+        <span>
+          {person.name} {person.number}
+        </span>
+        <Button
+          text="delete"
+          handleClick={() => handleDelete(persons, person.id)}
+        />
+        <br />
+      </div>
+    ));
+
+export default Persons;
